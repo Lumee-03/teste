@@ -1,1 +1,1375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lume</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
 
+  <!-- Cabeçalho -->
+  <header class="w-full shadow-md">
+    <div class="flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-pink-500">Lume</div>
+
+      <!-- Barra de pesquisa -->
+      <div class="flex-1 mx-6">
+        <input 
+          type="text" 
+          placeholder="Buscar produtos..." 
+          class="w-full border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400"
+        >
+      </div>
+
+      <!-- Atendimento e Carrinho com ícone -->
+      <div class="flex items-center space-x-6 text-gray-600">
+        <a href="#" class="flex items-center gap-1 hover:text-pink-500 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 11-12.728 0M12 3v4m0 10v4m-6-6h4m10 0h-4"/>
+          </svg>
+          Atendimento
+        </a>
+
+        <a href="carrinho.html" class="relative flex items-center gap-1 hover:text-pink-500 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+          </svg>
+          Carrinho
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Menu -->
+    <nav class="flex justify-center space-x-6 bg-pink-50 py-3 text-gray-700 font-medium">
+      <button onclick="toggleSidebar()" class="hover:text-pink-500 transition font-semibold">Ver Tudo</button>
+      <a href="index.html" class="hover:text-pink-500 transition">Início</a>
+      <a href="cabelo.html" class="hover:text-pink-500 transition">Cabelos</a>
+      <a href="maquiagem.html" class="hover:text-pink-500 transition">Maquiagens</a>
+      <a href="perfumes.html" class="hover:text-pink-500 transition">Perfumes</a>
+      <a href="skincare.html" class="hover:text-pink-500 transition">Skincare</a>
+    </nav>
+  </header>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+    <div class="flex justify-between items-center px-4 py-4 border-b">
+      <span class="font-bold text-lg">Menu Completo</span>
+      <button onclick="toggleSidebar()" class="text-gray-600 hover:text-pink-500">&times;</button>
+    </div>
+    <ul class="p-4 space-y-2">
+      <li>
+        <button class="w-full text-left font-medium hover:text-pink-500" onclick="toggleSubmenu('cabelos')">Cabelos</button>
+        <ul id="cabelos" class="pl-4 mt-2 hidden space-y-1 text-gray-600">
+          <li><a href="shampoo.html" class="hover:text-pink-500">Shampoos</a></li>
+          <li><a href="condicionador.html" class="hover:text-pink-500">Condicionadores</a></li>
+          <li><a href="mascara.html" class="hover:text-pink-500">Máscaras</a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="w-full text-left font-medium hover:text-pink-500" onclick="toggleSubmenu('maquiagens')">Maquiagens</button>
+        <ul id="maquiagens" class="pl-4 mt-2 hidden space-y-1 text-gray-600">
+          <li><a href="batom.html" class="hover:text-pink-500">Batom</a></li>
+          <li><a href="base.html" class="hover:text-pink-500">Base</a></li>
+          <li><a href="sombra.html" class="hover:text-pink-500">Sombras</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Conteúdo -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Produtos para Cabelos</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+      <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/wella1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/wella1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/wella1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+    'img_cabelo/wella1.jpg',
+    'img_cabelo/wella2.jpg',
+    'img_cabelo/wella3.jpg',
+    'img_cabelo/wella4.jpg',
+    'img_cabelo/wella5.jpg',
+    'img_cabelo/wella6.jpg',
+    'img_cabelo/wella7.jpg',
+    'img_cabelo/wella8.jpg'
+  ],
+  'Óleo para cabelos finos a normais. Versátil e sublime, Wella Professionals Oil Reflections Reflective Light Óleo Capilar deixa o cabelo macio e muito luminoso, sem pesar. \n\ \n\ Wella Professionals Oil Reflections Reflective Light Óleo Capilar tem tecnologia que deixa a sensação de fios mais densos, nutre na medida e deixa o cabelo com brilho instantâneo. Pode ser usado para proteger dos danos causados por química (antes da coloração, descoloração, etc.), como pré-shampoo e tratamento noturno.\n\ \n\ A ação do óleo de Semente de Camélia: cicatrização e selagem do fio.\n\ \n\ Extrato de Chá Branco: antioxidante natural.Fragrância: no topo Romã, Pêssego e Flor de Baunilha; no corpo Peônia, Coco e Jasmim; no fundo Almíscar, Baunilha e Cedro.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+          </div>
+        </div>
+
+      <!-- L'Oreal Professional -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/mascara_loreal1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">L'Oréal Professionnel</h3>
+              <p class="text-gray-500 text-sm mb-2">Máscara de Tratamento L'Oréal Professionnel Absolut Repair Molecular 75ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('LOréal Professionnel',49.90,'Máscara de Tratamento LOréal Professionnel Absolut Repair Molecular 75ml','img_cabelo/mascara_loreal1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('LOréal Professionnel',49.90,'Máscara de Tratamento LOréal Professionnel Absolut Repair Molecular 75ml','img_cabelo/mascara_loreal1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'LOréal Professionnel',
+  [
+    'img_cabelo/mascara_loreal1.jpg',
+    'img_cabelo/mascara_loreal2.jpg',
+    'img_cabelo/mascara_loreal3.jpg',
+    'img_cabelo/mascara_loreal4.jpg',
+    'img_cabelo/mascara_loreal5.jpg',
+    'img_cabelo/mascara_loreal6.jpg'
+  ],
+  'O que é e para que serve? \n\ \n\ A Mascara Absolute Repair Molecular é mascara concentrada que restaura as camadas moleculares do cabelo, reparando 2 anos de danos. \n\ \n\ A textura sedosa e cremosa da fórmula, inspirada em produtos de skincare, penetra instantaneamente e proporciona alto nível de cuidado e força sem pesar. \n\ \n\Recomendada para todos os cabelos danificados: sejam coloridos, descoloridos ou naturais. \n\ \n\ Benefícios: \n\ - Cabelo mais forte; \n\ - Elasticidade melhorada; \n\ - Mais movimento e maciez; \n\ - Melhor desembaraço e maleabilidade; \n\ - Livre de Sulfato. \n\ \n\ Ativos: \n\ Possui peptídicos + 5 aminoácidos que reconstroem a fibra capilar. \n\ \n\ Fragância: \n\ Bergamota fresca e salgada, baunilha e flor sempre viva. \n\ \n\ Modo de Uso: \n\ 1. Após o uso do Serum Reconstrutor com Enxague, aplique uma porção da Máscara Absolut Repair Molecular uniformemente do comprimento às pontas; \n\ 2. Desembarace o cabelo com os dedos; \n\ 3. Torça o cabelo, deixe agir por 1 a 2 minutos e enxague bem. \n\ \n\ Dica: \n\ Para cabelos grossos, use a Máscara Absolut Repair Molecular em cada lavagem. \n\ Para os demais tipos de cabelo, basta utilizar, uma vez por semana. \n\ \n\ Qual é o diferencial da LOréal Professionnel Absolut Repair Rinse-Off Máscara? \n\ A resposta está principalmente na composição enriquecida por peptídicos aliados aos cinco aminoácidos essenciais, uma combinação ideal capaz não só reparar como proteger contra futuros danos, devolvendo brilho natural enquanto fortalece estrutura interna das fibras capilares resultando num visual saudável radiante! \n\ \n\ Como otimizar meus cuidados usando LOréal Professionnel Absolut Repair? \n\ Basta integrar a linha completa Absolut Repair em sua rotina capilar, incluindo o shampoo, condicionador e sérum reconstrutor, que trabalhando juntos, potencializam os efeitos cumulativos indispensáveis manutenção beleza e resistência duradoura da fibra capilar',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Elseve -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/elseve1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Elseve</h3>
+              <p class="text-gray-500 text-sm mb-2">Óleo Finalizador para Cabelo Óleo Extraordinário L'Oreál Paris Elseve 100ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Elseve',49.90,'Óleo Finalizador para Cabelo Óleo Extraordinário LOreál Paris Elseve 100ml','img_cabelo/elseve1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Elseve',49.90,'Óleo Finalizador para Cabelo Óleo Extraordinário LOreál Paris Elseve 100ml','img_cabelo/elseve1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Elseve',
+  [
+    'img_cabelo/elseve1.jpg',
+    'img_cabelo/elseve2.jpg',
+    'img_cabelo/elseve3.jpg',
+    'img_cabelo/elseve4.jpg',
+    'img_cabelo/elseve5.jpg'
+  ],
+  'Óleo Finalizador para Cabelo Óleo Extraordinário LOreál Paris Elseve \n\ \n\ O que é e para que serve? \n\ O Óleo Finalizador Elseve Óleo Extraordinário LOréal Paris é um tratamento capilar profissional completo que transforma e nutre profundamente todos os tipos de cabelo, principalmente os fios secos e com frizz intenso. \n\ \n\ Quais os benefícios do Óleo Extraordinário LOréal Paris Elseve? \n\ Sua fórmula exclusiva combina 6 óleos de flores preciosas em uma textura leve e não oleosa, que penetra nas fibras capilares para hidratar, nutrir e proporcionar um brilho extraordinário aos fios, sem pesar. \n\ \n\ Com ação anti-frizz, o Óleo Finalizador Elseve Óleo Extraordinário disciplina os cabelos, deixando-os macios, sedosos. \n\ \n\ Além disso, atua como um poderoso protetor térmico, protegendo os cabelos do calor da chapinha em até 230 graus, mantendo a saúde dos fios. \n\ \n\ Prático e versátil, esse óleo capilar pode ser usado de diversas maneiras, seja nos cabelos úmidos antes da escova, como finalizador para um toque de brilho e maciez, ou a qualquer momento do dia para controlar o frizz e realçar a beleza natural dos seus cabelos.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Wella Professionals -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/wella_luxe1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Wella Professionals</h3>
+              <p class="text-gray-500 text-sm mb-2">Wella Professionals Ultimate Luxe Oil Óleo Capilar 30ml.</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Wella Luxe Professionals',49.90,'Wella Professionals Ultimate Luxe Oil Óleo Capilar 30ml','img_cabelo/wella_luxe1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Wella Luxe Professionals',49.90,'Wella Professionals Ultimate Luxe Oil Óleo Capilar 30ml','img_cabelo/wella_luxe1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Wella Luxe Professionals',
+  [
+    'img_cabelo/wella_luxe1.jpg',
+    'img_cabelo/wella_luxe2.jpg',
+    'img_cabelo/wella_luxe3.jpg',
+    'img_cabelo/wella_luxe4.jpg',
+    'img_cabelo/wella_luxe5.jpg',
+    'img_cabelo/wella_luxe6.jpg',
+    'img_cabelo/wella_luxe7.jpg',
+    'img_cabelo/wella_luxe8.jpg'
+  ],
+  'Wella Professionals Ultimate Luxe Oil Óleo Capilar \n\ \n\ O que é e para que serve? \n\ O Reconstructive Oil Ultimate Luxe Oil de Wella Professionals é um verdadeiro luxo para seus cabelos. Este óleo leve e sem peso oferece uma reconstrução instantânea para seus fios, deixando-os radiantes e revitalizados. \n\ \n\ Quais os Benefícios do Wella Professionals Ultimate Luxe Oil Óleo Capilar? \n\ - Combate o frizz e mantem os cabelos disciplinados e livres de fios rebeldes; \n\ - Oferece proteção contra os danos causados pelos raios UV e pelo calor de ferramentas de styling; \n\ - Em apenas 30 segundos, você poderá notar fios mais nutridos e revitalizados; \n\ - Resultados visíveis e instantâneos que deixam os cabelos macios e deslumbrantes. \n\ \n\ Ativos: \n\ Formulado com uma mistura de ingredientes nutritivos como óleo de argan, amêndoas e jojoba, ele penetra profundamente nos fios, proporcionando um brilho e uma suavidade perceptíveis.\n\ \n\ Modo de Uso: \n\ 1. Aplique Wella Professionals Reconstructive Oil Ultimate Luxe Oil nos fios quando desejar, comprimento e pontas. \n\ 2. Você pode usá-lo junto com a máscara da linha, aumentando a reparação e garantindo maior maleabilidade. \n\ \n\ O Óleo Ultimate Luxe Oil é indicado para todos os tipos de cabelo? \n\ Sim, o Reconstructive Oil Ultimate Luxe Oil é versátil e pode ser utilizado em todos os tipos de cabelo. Seja o seu cabelo liso, ondulado, cacheado ou crespo, este óleo luxuoso adaptará às suas necessidades específicas, oferecendo nutrição, brilho e proteção, sem pesar nos fios.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Kerastase -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/kerastase1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Kerastase</h3>
+              <p class="text-gray-500 text-sm mb-2">Kérastase Résistance Masque Thérapiste - Máscara de Tratamento 200ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Kerastase',49.90,'Kérastase Résistance Masque Thérapiste - Máscara de Tratamento 200ml','img_cabelo/kerastase1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Kerastase',49.90,'Kérastase Résistance Masque Thérapiste - Máscara de Tratamento 200ml','img_cabelo/kerastase1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Kerastase',
+  [
+    'img_cabelo/kerastase1.jpg',
+    'img_cabelo/kerastase2.jpg',
+    'img_cabelo/kerastase3.jpg',
+    'img_cabelo/kerastase4.jpg',
+    'img_cabelo/kerastase5.jpg',
+    'img_cabelo/kerastase6.jpg'
+  ],
+  'Kérastase Résistance Masque Thérapiste - Máscara de Tratamento \n\ \n\ O que é e para que serve? \n\ Máscara renovadora de qualidade da fibra. A máscara de tratamento Résistance Masque Thérapiste de Kérastase é ideal para cabelos danificados, renovando a qualidade da fibra dos cabelos quimicamente tratados. \n\ \n\ A máscara auxilia na reconstrução da estrutura capilar, promovendo força e vitalidade. Sua tecnologia possui alta concentração de polímeros com poder antioxidante, resultando em fios saudáveis e macios. Distribua o produto pela palma das mãos e aplique no comprimento e pontas. Massageie com a ponta dos dedos e deixe agir por 5 minutos, enxaguando em seguida. \n\ \n\ A linha Résistance reconstrói a matéria interna dos cabelos enfraquecidos, danificados por agressões externas e superprocessados. Tratados, os cabelos recuperam a força e a vitalidade. Foi desenvolvida para reconstruir os cabelos danificados. Restaura a estrutura do fio sensibilizado, protege e fortalece a fibra capilar. \n\ \n\ Quais os Benefícios do Kérastase Résistance Masque Thérapiste - Máscara de Tratamento? \n\ - Reconstrução; \n\ - Brilho; \n\ -Maciez.\n\ \n\ Modo de uso: \n\ 1. Distribua o produto uniformemente na palma da mão. \n\ 2. Aplique sobre o comprimento e nas pontas dos cabelos molhados e lavados após o shampoo. \n\ 3. Massagear delicadamente com a ponta dos dedos e deixe agir por 5 minutos. 4. Após isso, enxágue abundantemente com água. \n\ \n\ Indicado: \n\ - Para cabelos danificados. \n\ \n\ Tecnologia: \n\ Possui tecnologia Fibra-Kap que é formada pela SP 94 (um ativador da síntese capilar), 6 amino-ácidos e proteína do trigo que ajudam a compensar a perda de KAPs que são essenciais para coesão da fibra. Além dela, também está presente a tecnologia de Sève de Réssurection ',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Lola From Rio -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/lola1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Argan Oil - Óleo Capilar 50ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola From Rio',49.90,'Lola Cosmetics Argan Oil - Óleo Capilar 50ml','img_cabelo/lola1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola From Rio',49.90,'Lola Cosmetics Argan Oil - Óleo Capilar 50ml','img_cabelo/lola1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola From Rio',
+  [
+    'img_cabelo/lola1.jpg',
+    'img_cabelo/lola2.jpg',
+    'img_cabelo/lola3.jpg',
+    'img_cabelo/lola4.jpg'
+  ],
+  'O Argan Oil possui fórmula superleve e com toque seco, auxilia no controle do frizz e na redução da eletricidade estática, além de doar brilho intenso aos fios. \n\ \n\ O Óleo de Argan é rico em ácidos graxos, vitamina A, D e E, o óleo de Argan é um poderoso hidratante e antioxidante natural que retarda o envelhecimento dos fios, restaura a fibra capilar, fortalecendo, nutrindo e revitalizando o couro cabeludo e os fios. \n\ \n\ Além disso ele minimiza o desgaste dos fios provocado por poluição, sol, vento, secador, chapinha, piscina, mar e processos químicos. \n\ \n\ Indicado: \n\ Para cabelos danificados. \n\ \n\ Ativos: \n\ Óleo de Argan \n\ Pracaxi \n\ \n\ Modo de Usar: \n\ Aplicar uma pequena quantidade e distribuir nos fios. Finalizar como de costume. \n\ \n\ A Marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Wella Professionals -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/wella_oil1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Wella Professionals</h3>
+              <p class="text-gray-500 text-sm mb-2">Wella Professionals Oil Reflections Smoothening Óleo Capilar 30ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Wella Professionals Smoothening',49.90,'Wella Professionals Oil Reflections Smoothening Óleo Capilar 30ml','img_cabelo/wella_oil1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Wella Professionals Smoothening',49.90,'Wella Professionals Oil Reflections Smoothening Óleo Capilar 30ml','img_cabelo/wella_oil1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Wella Professionals Smoothening',
+  [
+    'img_cabelo/wella_oil1.jpg',
+    'img_cabelo/wella2.jpg',
+    'img_cabelo/wella_oil2.jpg',
+    'img_cabelo/wella4.jpg',
+    'img_cabelo/wella5.jpg',
+    'img_cabelo/wella6.jpg',
+    'img_cabelo/wella7.jpg',
+    'img_cabelo/wella8.jpg',
+  ],
+  'Descubra mais sobre \n\ \n\ Óleo para todos os tipos de cabelos. Wella Professionals Oil Reflections Luminous Smoothening proporciona um efeito gloss com nutrição e proteção dos fios. \n\ \n\ Wella Professionals Oil Reflections Luminous Smoothening é extremamente versátil e pode ser usado como pré-shampoo, tratamento noturno, leave-in, proteção térmica contra secador e extra brilho. Além disso, também protege os fios durante processos químicos. Dessa forma, você conquista cabelos macios e com uma carga maior de nutrientes. \n\ \n\ A ação do óleo de Abacate e Macadâmia: nutrição instantânea e proteção dos fios. \n\ \n\ Vitamina E: um antioxidante natural que protege a cor e doa brilho. Fragrância: no topo Romã, Pêssego e Flor de Baunilha; no corpo Peônia, Coco e Jasmim; no fundo Almíscar, Baunilha e Cedro.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Sebastian Professional -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/sebastian1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Sebastian Professional</h3>
+              <p class="text-gray-500 text-sm mb-2">Sebastian Dark Oil - Óleo Capilar 30ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Sebastian Professional',49.90,'Sebastian Dark Oil - Óleo Capilar 30ml','img_cabelo/sebastian1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Sebastian Professional',49.90,'Sebastian Dark Oil - Óleo Capilar 30ml','img_cabelo/sebastian1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Sebastian Professional',
+  [
+    'img_cabelo/sebastian1.jpg',
+    'img_cabelo/sebastian2.jpg',
+    'img_cabelo/sebastian3.jpg',
+    'img_cabelo/sebastian4.jpg',
+    'img_cabelo/sebastian5.jpg',
+    'img_cabelo/sebastian6.jpg',
+    'img_cabelo/sebastian7.jpg'
+  ],
+  'Descubra mais sobre: \n\ \n\ Sebastian Professional Dark Oil é um óleo de styling que une tratamento com finalização. Sua fórmula intensa, mas leve, protege dos raios UV, controla o frizz, promove brilho e aumenta a suavidade por até 48 horas. Além disso, proporciona textura e facilita a criação de penteados. Tudo isso com alta durabilidade, sem pesar e trazendo nutrição ao cabelo! \n\ \n\ Sebastian Professional, da multinacional Wella Company, é uma das marcas mais inovadoras do setor capilar. Fundada em 1972 por Geri Cusenza e seu marido, John, Sebastian Professional foi pioneira em criações inovadoras de técnicas, ferramentas de styling, como a piastra crimping, que dá efeito frisado aos fios, e possui um crescente portfólio de produtos já clássicos como o Penetraitt, Dark Oil e Potion 9. \n\ \n\ Sebastian Dark Oil - Óleo Capilar \n\ \n\ O que é e para que serve? \n\ O Dark Oil da Sebastian Professional é um óleo capilar que traz a tecnologia de ponta para o cuidado e revitalização dos cabelos. \n\ \n\ Formulado para reconstruir o cabelo de dentro para fora, proporcionando uma suavidade incomparável à cutícula capilar e adicionando volume de maneira leve e natural. \n\ \n\ Ideal para quem busca um cabelo saudável, brilhante e cheio de vida, o Dark Oil é uma escolha perfeita para todos os tipos de cabelo que necessitam de um toque de sofisticação e tratamento intensivo. \n\ \n\ Quais os Benefícios do Sebastian Dark Oil - Óleo Capilar? \n\ - Proporciona um brilho intenso; \n\ - Nutrição; \n\ - Maleabilidade sem igual; \n\ - Cabelos lindos e sedosos por até 48 horas; \n\ - Não pesa nos fios; \n\ - Cabelo solto e com movimento natural. \n\ \n\ Ativos: \n\ Fórmula enriquecida com uma poderosa mistura de óleos naturais, incluindo Argan, Sândalo e Cedro. Estes ingredientes não apenas nutrem profundamente os fios, mas também conferem uma fragrância marcante e sofisticada que transforma a experiência de cuidado capilar em um verdadeiro ritual de beleza. \n\ \n\ Modo de Uso: \n\ 1. Aplique uma pequena quantidade do óleo nas mãos e distribua uniformemente pelos cabelos secos ou úmidos, focando nas pontas e meio dos fios para um melhor resultado. \n\ 2. Você pode utilizá-lo antes da escova para facilitar o processo de modelagem ou após a finalização, para um acabamento perfeito. \n\ \n\ A versatilidade do Dark Oil permite que ele seja usado como um tratamento pré-lavagem, condicionador leave-in ou até mesmo como um toque final de brilho e maciez. \n\ \n\ O Dark Oil é indicado para todos os tipos de cabelo? \n\ Sim, o Dark Oil da Sebastian Professional é indicado para todos os tipos de cabelo. Sua fórmula leve e nutritiva é especialmente desenvolvida para tratar e revitalizar desde cabelos finos a grossos, secos ou oleosos, proporcionando sempre um acabamento sedoso e brilhante sem pesar nos fios.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Wella Professionals Invigo Nutri-Enrich - Máscara 150ml  -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Wella_Professionals_InvigoNutri-Enrich1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Wella Professionals</h3>
+              <p class="text-gray-500 text-sm mb-2">Wella Professionals Invigo Nutri-Enrich - Máscara 150ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Wella Professionals Invigo Nutri-Enrich - Máscara 150ml',49.90,'Wella Professionals Invigo Nutri-Enrich - Máscara 150ml','img_cabelo/Wella_Professionals_InvigoNutri-Enrich1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Wella Professionals Invigo Nutri-Enrich - Máscara 150ml',49.90,'Wella Professionals Invigo Nutri-Enrich - Máscara 150ml','img_cabelo/Wella_Professionals_InvigoNutri-Enrich1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Wella Professionals Invigo Nutri-Enrich - Máscara 150ml',
+  [
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich1.jpg',
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich2.jpg',
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich3.jpg',
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich4.jpg',
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich5.jpg',
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich6.jpg',
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich7.jpg',
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich8.jpg',
+    'img_cabelo/Wella_Professionals_InvigoNutri-Enrich9.jpg'
+  ],
+  'Descubra mais sobre \n\ \n\ INVIGO NUTRI-ENRICH Máscara de tratamento que reconstitui e hidrata profundamente o cabelo seco ou desgastado, deixando-os nutridos e cheios de vitalidade. Com Enrich Complex. \n\ \n\ Nutri-Enrich nutre e dá maciez aos cabelos ressecados, recuperando sua vitalidade. O ácido oleico e o Pantenol proporcionam hidratação e nutrição ao cabelo, enquanto a vitamina E protege o cabelo de mais desgastes (Complexo Nutri-Enrich). A Goji Berry é conhecida por ser extremamente rica em vitaminas, minerais e peptídeos. \n\ \n\ Wella Professionals Invigo Nutri-Enrich - Máscara \n\ \n\ O que é e para que serve? \n\ A Wella Professionals Invigo Nutri-Enrich Máscara é um tratamento capilar intensivo formulado especialmente para reconstituir e hidratar profundamente cabelos quimicamente tratados, secos ou desgastados.\n\ \n\ Este produto excepcional penetra nas fibras do cabelo, promovendo uma nutrição intensa e suavizando as madeixas mais ressecadas, devolvendo-lhes toda a vitalidade perdida. \n\ \n\ Com sua fragrância frutal elegante e inovadora, entrelaçada com notas de chipre e frutas polposas, cada aplicação se transforma em uma experiência sensorial única. \n\ \n\ Quais os Benefícios da Wella Professionals Invigo Nutri-Enrich - Máscara? \n\ Reparação profunda: \n\ Repara os danos causados por tratamentos químicos anteriores e agressões externas. \n\ \n\ Nutrição intensa: \n\ Enriquecida com Ácido Oleico e Pantenol que proporcionam hidratação instantânea. \n\ \n\ Proteção contra o estresse capilar: \n\ A Vitamina E age como um poderoso antioxidante que protege os fios de novos danos. \n\ \n\ Vitalidade renovada: \n\ Cabelos ficam visivelmente mais saudáveis com brilho radiante. \n\ \n\ Controle do frizz: \n\ Proporciona maciez duradoura ao combater o frizz indesejado. \n\ \n\ Além disso, contém Goji Berry conhecido por ser extremamente rico em vitaminas essenciais, minerais e peptídeos nutritivos. \n\ \n\ Modo de Uso: \n\ 1. Após lavar os cabelos com shampoo adequado ao seu tipo de cabelo (sugerimos um da mesma linha Nutri-Enrich), retire o excesso de água dos fios cuidadosamente. \n\ 2. Aplique uma quantidade generosa da máscara no comprimento até as pontas dos cabelos úmidos. \n\ 3. Massageie delicadamente mecha por mecha garantindo distribuição uniforme do produto. \n\ 4. Deixe agir entre 5 e 10 minutos conforme necessidade. \n\ 5. Enxágue abundantemente retirando todo resíduo sem deixar vestígios nos seus preciosos fios.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Wella Professionals Ultimate Repair Máscara 150ml -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Wella Professionals</h3>
+              <p class="text-gray-500 text-sm mb-2">Wella Professionals Ultimate Repair Máscara 150ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Wella Professionals Ultimate Repair Máscara 150ml',49.90,'Wella Professionals Ultimate Repair Máscara 150ml','img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Wella Professionals Ultimate Repair Máscara 150ml',49.90,'Wella Professionals Ultimate Repair Máscara 150ml','img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Wella Professionals Ultimate Repair Máscara 150ml',
+  [
+    'img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara1.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara2.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara3.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara4.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara5.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara6.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara7.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Repair_Máscara8.jpg'
+  ],
+  'Máscara de tratamento que repara, fortalece e suaviza todos os tipos de cabelo. Com AHA e Ômega-9. Proporciona condicionamento intenso e reduz visivelmente o frizz. Testada dermatologicamente. Segura para uso em cabelos coloridos. Fórmula vegana. \n\ \n\ Ultimate Repair é a linha de tratamento luxuosa de Wella Professionals que garante reparação com tecnologia patenteada, combinando o poder do AHA e do Ômega-9, poderosos ativos para os fios.\n\ \n\  Conheça o portfólio completo e tenha: \n\ • Reparação dos danos em 90 segundos \n\ • 99% menos quebra dos fios \n\ • 12x mais maciez aos fios \n\ • Cabelos mais brilhantes a cada uso A linha é vegana, cruelty-free, compatível com cabelos coloridos, dermatologicamente testada e gentil para o couro cabeludo. \n\ \n\ Modo de Uso: Aplique nos fios limpos e úmidos. Deixe agir por 5 a 10 minutos. Enxágue com água abundante. Para melhores resultados, siga a rotina completa: use diariamente Shampoo, Condicionador, Máscara e Protective Leave-in. Use Miracle Hair Rescue 1x por semana ou 2-3x por semana para cabelos danificados. Seguro para cabelos coloridos.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Wella Professionals Ultimate Luxe Oil Máscara 150ml -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Wella Professionals</h3>
+              <p class="text-gray-500 text-sm mb-2">Wella Professionals Ultimate Luxe Oil Máscara 150ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Wella Professionals Ultimate Luxe Oil Máscara 150ml',49.90,'Wella Professionals Ultimate Luxe Oil Máscara 150ml','img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Wella Professionals Ultimate Luxe Oil Máscara 150ml',49.90,'Wella Professionals Ultimate Luxe Oil Máscara 150ml','img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Wella Professionals Ultimate Luxe Oil Máscara 150ml',
+  [
+    'img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara1.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara2.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara3.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara4.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara5.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara6.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara7.jpg',
+    'img_cabelo/Wella_Professionals_Ultimate_Luxe_Oil_Máscara8.jpg'
+  ],
+  'Wella Professionals Ultimate Luxe Oil Máscara \n\ \n\ O que é e para que serve?\n\ A Máscara Ultimate Luxe Oil da Wella Professionals, é desenvolvida para nutrir profundamente os fios, esta máscara é ideal para quem busca revitalizar e restaurar a saúde dos cabelos. \n\ \n\ Ela atua não apenas como um tratamento nutritivo, mas também como uma solução eficaz para cabelos secos, danificados e propensos ao frizz. \n\ \n\ A Máscara Ultimate Luxe Oil é essencial para quem deseja cabelos sedosos, macios e com um brilho radiante. \n\ \n\ Quais os Benefícios do Wella Professionals Ultimate Luxe Oil Máscara? \n\ - Reduz instantaneamente o frizz; \n\ - Proporciona cabelos disciplinados; \n\ - Melhora na aparência e na textura dos seus cabelos; \n\ - Fios mais bonitos, maleáveis e cheios de vida. \n\ \n\ Ativos: \n\ Com uma fórmula enriquecida com óleos preciosos, como o óleo de argan, amêndoas e jojoba, esta máscara oferece nutrição intensa e hidratação profunda. Esses ativos são conhecidos por suas propriedades restauradoras e protetoras, que ajudam a reparar os fios danificados, devolver a elasticidade e conferir um brilho inigualável. \n\ \n\ Modo de Uso: \n\ 1. Após lavar os cabelos com shampoo, aplique uma quantidade generosa da máscara nos fios ainda úmidos, distribuindo uniformemente do comprimento às pontas. \n\ 2. Massageie suavemente para garantir que o produto penetre bem nos cabelos. \n\ 3. Deixe agir por 5 a 10 minutos para que os ativos possam nutrir e restaurar profundamente os fios. \n\ 4. Em seguida, enxágue abundantemente com água morna.\n\ 5. Utilize a máscara uma ou duas vezes por semana, ou conforme a necessidade específica dos seus cabelos, para manter os fios sempre hidratados, macios e radiantes. \n\ \n\ A Máscara Ultimate Luxe Oil é indicada para todos os tipos de cabelo? \n\ Sim, a Máscara Ultimate Luxe Oil é indicada para todos os tipos de cabelo. Sua fórmula versátil e rica em óleos essenciais é ideal para tratar cabelos secos, danificados e com frizz, mas também pode ser usada por quem tem cabelos normais a oleosos que precisam de um tratamento nutritivo e restaurador ocasional.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+		
+		<!-- Widi Care Encaracolando a Juba Creme de Pentear 500ml -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/encaracolando_a_juba_widi_care_leave_in1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Widi Care</h3>
+              <p class="text-gray-500 text-sm mb-2">Widi Care Encaracolando a Juba Creme de Pentear 500ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Widi Care Encaracolando a Juba Creme de Pentear 500ml',49.90,'Widi Care Encaracolando a Juba Creme de Pentear 500ml','img_cabelo/encaracolando_a_juba_widi_care_leave_in1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Widi Care Encaracolando a Juba Creme de Pentear 500ml',49.90,'Widi Care Encaracolando a Juba Creme de Pentear 500ml','img_cabelo/encaracolando_a_juba_widi_care_leave_in1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Widi Care Encaracolando a Juba Creme de Pentear 500ml',
+  [
+   'img_cabelo/encaracolando_a_juba_widi_care_leave_in1.jpg',
+   'img_cabelo/encaracolando_a_juba_widi_care_leave_in2.jpg'
+  ],
+  'O que é? \n\ Cansados dessa história de controle dos cachos, Encaracolando a Juba Creme de Pentear traz para você que é cacheada e ama sua cabeleira volumosa, a linha JUBA que define, nutre, hidrata e empodera suas madeixas com auxílio dos ativos: Manteiga de Murumuru Orgânica, Óleo de Linhaça Dourada e Extrato de Avelã. \n\ \n\ Mara, né? Agora solte sua Juba, ame seus cachos e sinta-se plena. \n\ \n\ Como usar? \n\ Com o cabelo úmido, divida-o em mechas finas e inicie o processo pela parte da nuca para ficar mais fácil a aplicação. Coloque uma quantidade suficiente do Encaracolando a Juba Creme de Pentear nas mãos e aplique nos cabelos fazendo fitas (mechas finas). Repita esse processo por todo o cabelo e depois amasse as mechas de baixo para cima para ajudar na definição. Deixe secar naturalmente ou com ajuda de um difusor.\n\ \n\ Dica: \n\ Para uma maior definição utilize o nosso Juba Mousse Criador De Cachos. \n\ \n\ PH: \n\ 3,5 – 4,5 \n\ \n\ Ativos:\n\ Óleo de linhaça dourada: rica em ômega 3 e 6, proporciona condicionamento e brilho acetinado. \n\ \n\ Extrato de avelã: possui ação emoliente, atuando no interior da fibra capilar. \n\ \n\ Manteiga de murumuru orgânica: promove ação hidratante e restauradora dos fios',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+
+        <!-- Wella Professionals Oil Reflections Máscara de Hidratação 150ml -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Wella Professionals</h3>
+              <p class="text-gray-500 text-sm mb-2">Wella Professionals Oil Reflections Máscara de Hidratação 150ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Wella Professionals Oil Reflections Máscara de Hidratação 150ml',49.90,'Wella Professionals Oil Reflections Máscara de Hidratação 150ml','img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Wella Professionals Oil Reflections Máscara de Hidratação 150ml',49.90,'Wella Professionals Oil Reflections Máscara de Hidratação 150ml','img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Wella Professionals Oil Reflections Máscara de Hidratação 150ml',
+  [
+   'img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao1.jpg',
+   'img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao2.jpg',
+   'img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao3.jpg',
+   'img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao4.jpg',
+   'img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao5.jpg',
+   'img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao6.jpg',
+   'img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao7.jpg',
+   'img_cabelo/wella_sp_oil_reflections_mascara_de_hidratacao8.jpg',
+  ],
+  'Descubra mais sobre: \n\ \n\ Máscara para todos os tipos de cabelo. Wella Professionals Oil Reflections Luminous Reboost Máscara deixa os fios luminosos, macios e restaura a estrutura capilar. \n\ \n\ Máscara que hidrata profundamente e promove o equilíbrio natural de água nos fios. A Máscara Wella Professionals Oil Reflections Luminous Reboost nutre e hidrata profundamente e promove a menor perda de água dos fios. Wella Oil Reflections é uma másca que revitaliza as fibras capilares através de uma fórmula nutritiva para que fiquem extremamente macias e com alto brilho. \n\ \n\ Wella Professionals Oil Reflections Máscara de Hidratação \n\ \n\ O que é e para que serve? \n\ A Oil Reflections Mask é uma máscara capilar de alto desempenho e sua função principal é restaurar a estrutura capilar, proporcionando um tratamento intensivo que revitaliza as fibras dos seus cabelos. \n\ \n\ Com uma fórmula rica em nutrientes, ela é ideal para tratar fios danificados, devolvendo a eles a maciez e o brilho que tanto merecem. \n\ \n\ Além disso, sua ação reduz a perda de água dos fios, o que ajuda a manter a hidratação por mais tempo, deixando os cabelos saudáveis macios e cheios de vida. \n\ \n\ Quais os Benefícios do Wella Professionals Oil Reflections Máscara de Hidratação? \n\ - Nutrição e Hidratação Profunda; \n\ - Brilho Intenso; \n\ - Maciez Aveludada; \n\ - Proteção Antioxidante; \n\ - Fragrância Encantadora com notas de topo de Romã, Pêssego e Flor de Baunilha, combinadas com um coração floral de Peônia, Coco e Jasmim, e um fundo acolhedor de Almíscar, Baunilha e Cedro. \n\ \n\ Ativos: \n\ Com uma combinação poderosa de ingredientes como o Óleo de Semente de Camélia e o Extrato de Chá Branco, a máscara oferece uma nutrição intensa que penetra profundamente nos fios, melhorando a textura e a saúde geral do cabelo. \n\ O Extrato de Chá Branco atua como um antioxidante natural, protegendo os fios dos danos ambientais e do envelhecimento precoce. \n\ \n\ Modo de Uso: \n\ 1. Após lavar os cabelos com shampoo, retire o excesso de água. \n\ 2. Aplique uma quantidade generosa da máscara nos fios úmidos, distribuindo uniformemente do comprimento às pontas. \n\ 3. Massageie suavemente cada mecha, envolvendo os fios para garantir que todos os nutrientes sejam absorvidos. \n\ 4. Deixe agir de 15 a 20 minutos para um tratamento profundo. \n\ 5. Por fim, enxágue abundantemente com água morna e finalize como de costume. \n\ 6. Use semanalmente ou conforme a necessidade dos seus cabelos para manter o brilho e a maciez. \n\ \n\ Posso usar a máscara em cabelos tingidos ou quimicamente tratados? \n\ Sim, a Wella Professionals Oil Reflections Luminous Reboost Máscara é adequada para todos os tipos de cabelo, incluindo aqueles que passaram por processos químicos.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+
+        <!-- Revlon Professional Uniq One - Leave-in 150ml -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/revlon.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Revlon</h3>
+              <p class="text-gray-500 text-sm mb-2">Revlon Professional Uniq One - Leave-in 150ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Revlon Professional Uniq One - Leave-in 150ml',49.90,'Revlon Professional Uniq One - Leave-in 150ml','img_cabelo/revlon.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Revlon Professional Uniq One - Leave-in 150ml',49.90,'Revlon Professional Uniq One - Leave-in 150ml','img_cabelo/revlon.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Revlon Professional Uniq One - Leave-in 150ml',
+  [
+   'img_cabelo/revlon.jpg',
+   'img_cabelo/revlon1.jpg'
+  ],
+  'Revlon Professional Uniq One - Leave-in 150ml \n\ \n\ Leave-in 10 em 1 para cabelos danificados. Trata e protege o fio enquanto age como finalizador. O Revlon Professional Uniq One é realmente uma revolução em matéria de cuidados para o cabelo. \n\ \n\ O Uniq One, da Revlon Professional, une 10 benefícios de tratamento e finalização em um só produto: \n\    1. Repara os fios ressecados e danificados: possui agentes hidratantes e de condicionamento que melhoram a textura e a maleabilidade dos fios. \n\  2. Controla o frizz: com o tempo seco ou úmido, protege das agressões ambientais e evita que o cabelo arrepie. \n\ 3. Protege do calor do secador e da chapinha: forma uma película ao redor da fibra capilar, protegendo-a das altas temperaturas. \n\    4. Suaviza e deixa um toque acetinado: possui agentes condicionantes poderosos, amaciando e controlando. \n\      5. Protege do sol e mantém a cor: com filtros UVA e UVB, extremamente leves, protege sem deixar o cabelo pesado. Evita a oxidação causada pelo sol que faz cor desbotar. \n\    6. Facilita a escovação e o uso da prancha: com o cabelo mais suave e macio, ele facilita o deslizar a prancha e escovar. \n\    7. Desembaraça: deixa os fios soltos e desembaraçados. \n\   8. Mantém o penteado por mais tempo. \n\ 9. Previne as pontas duplas. \n\    10. Controla o volume natural dos cabelos. \n\ \n\ Como Usar: \n\ \n\   Conselho de Aplicação Aplique no cabelo úmido, como um spray, borrifando a 20cm de distância; ou aplique no cabelo seco, borrifando na mão e espalhando, como um creme. Cabelo curto: 6-8 doses Cabelo médio: 7-12 doses Cabelo longo: 10-15 doses \n\ \n\ Especificações \n\ \n\ Tipos de Cabelos: \n\ Danificados \n\ \n\ Necessidade: \n\ Controle de Frizz',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>
+
+    <!-- Elseve Liso dos Sonhos Sérum Leave-In 100ml -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/serum_leave_in_elseve_liso_dos_sonhos1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Elseve</h3>
+              <p class="text-gray-500 text-sm mb-2">Elseve Liso dos Sonhos Sérum Leave-In 100ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Elseve Liso dos Sonhos Sérum Leave-In 100ml',49.90,'Elseve Liso dos Sonhos Sérum Leave-In 100ml','img_cabelo/serum_leave_in_elseve_liso_dos_sonhos1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Elseve Liso dos Sonhos Sérum Leave-In 100ml',49.90,'Elseve Liso dos Sonhos Sérum Leave-In 100ml','img_cabelo/serum_leave_in_elseve_liso_dos_sonhos1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Elseve Liso dos Sonhos Sérum Leave-In 100ml',
+  [
+   'img_cabelo/serum_leave_in_elseve_liso_dos_sonhos1.jpg',
+   'img_cabelo/serum_leave_in_elseve_liso_dos_sonhos2.jpg',
+   'img_cabelo/serum_leave_in_elseve_liso_dos_sonhos3.jpg',
+   'img_cabelo/serum_leave_in_elseve_liso_dos_sonhos4.jpg',
+   'img_cabelo/serum_leave_in_elseve_liso_dos_sonhos5.jpg',
+   'img_cabelo/serum_leave_in_elseve_liso_dos_sonhos6.jpg',
+   'img_cabelo/serum_leave_in_elseve_liso_dos_sonhos7.jpg'
+  ],
+  'Elseve Liso dos Sonhos Sérum Leave-In \n\ \n\ O que é e para que serve? \n\ O Elseve Liso dos Sonhos Sérum Leave-In é um tratamento capilar inovador que proporciona cabelos lisos e sedosos por até uma semana. Com sua tecnologia ativada por calor, o sérum alinha os cabelos e cria uma barreira protetora invisível na fibra capilar, garantindo proteção contra a umidade. Ideal para quem deseja manter os fios alinhados e sem frizz, mesmo em dias mais úmidos. \n\ \n\ Quais os benefícios do Elseve Liso dos Sonhos Sérum Leave-In? \n\ - Alinhamento capilar em casa sem necessidade de alisamento químico. \n\ - Proteção contra umidade por até uma semana. \n\ - Resultados visíveis que resistem até 5 lavagens. \n\ - Cabelos reparados, sedosos e fáceis de pentear. \n\ - Enriquecido com AHA e Queratina Vegetal para um cuidado profundo. \n\ \n\ Ativos: \n\ O Elseve Liso dos Sonhos Sérum Leave-In é enriquecido com AHA e Queratina Vegetal, que ajudam a restaurar e fortalecer a fibra capilar, promovendo um efeito liso e saudável. \n\ \n\ Indicação: \n\ Este produto é indicado para todos os tipos de cabelos que desejam um efeito liso e alinhado. Ideal para quem busca praticidade e resultados duradouros, sem abrir mão da saúde dos fios. \n\ \n\ Modo de uso: \n\ 1. Aplique o Sérum Elseve Liso dos Sonhos nos cabelos úmidos, do comprimento às pontas. \n\ 2. Certifique-se de cobrir todos os fios uniformemente. \n\ 3. Na primeira aplicação da semana, seque o cabelo e ative a fórmula com a chapinha. \n\ 4. Durante a semana, após cada lavagem, reaplique o sérum e ative com o secador. \n\ 5. Não é necessário usar chapinha novamente durante a semana. \n\ \n\ Como o Elseve Liso dos Sonhos Sérum Leave-In funciona? \n\ O Elseve Liso dos Sonhos Sérum Leave-In funciona através de uma tecnologia ativada por calor que alinha os fios e cria uma barreira invisível na fibra capilar, protegendo contra a umidade e mantendo o cabelo liso por até uma semana. \n\ \n\ O Elseve Liso dos Sonhos pode ser usado em qualquer tipo de cabelo? \n\ Sim, o Elseve Liso dos Sonhos Sérum Leave-In é indicado para todos os tipos de cabelos. Ele é especialmente eficaz para aqueles que desejam um efeito liso e alinhado sem a necessidade de procedimentos químicos.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+		
+<!-- Danos Vorazes Óleo Reparador 50ml , Lola Cosmetics -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Danos_Vorazes_Óleo_Reparador1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Danos Vorazes Óleo Reparador 50ml , Lola Cosmetics</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Danos Vorazes Óleo Reparador 50ml , Lola Cosmetics',49.90,'Danos Vorazes Óleo Reparador 50ml , Lola Cosmetics','img_cabelo/Danos_Vorazes_Óleo_Reparador1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Danos Vorazes Óleo Reparador 50ml , Lola Cosmetics',49.90,'Danos Vorazes Óleo Reparador 50ml , Lola Cosmetics','img_cabelo/Danos_Vorazes_Óleo_Reparador1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Danos Vorazes Óleo Reparador 50ml , Lola Cosmetics',
+  [
+   'img_cabelo/Danos_Vorazes_Óleo_Reparador1.jpg',
+   'img_cabelo/Danos_Vorazes_Óleo_Reparador2.jpg',
+   'img_cabelo/Danos_Vorazes_Óleo_Reparador3.jpg',
+   'img_cabelo/Danos_Vorazes_Óleo_Reparador4.jpg',
+   'img_cabelo/Danos_Vorazes_Óleo_Reparador5.jpg'
+  ],
+  'Óleo reparador com textura leve que repara a superfície da fibra, alinha as cutículas e nutre desde seu interior. \n\ \n\  Com cannabinoid active system (CBA) e hair kombucha para cabelos leves, macios e com brilho radiante. \n\ \n\ Sobre este item \n\ \n\ Óleo Reparador para cabelos danificados \n\ \n\alinhamento de cuticula e nutrição desde o interior do fio \n\ \n\ mais brilho e maciez.',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Pantene PRO-V Miracles Shampoo Antiqueda & Nutrição Biotinamina B3 para cabelos com queda 510ml -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Pantene</h3>
+              <p class="text-gray-500 text-sm mb-2">Pantene PRO-V Miracles Shampoo Antiqueda & Nutrição Biotinamina B3 para cabelos com queda 510ml</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Pantene PRO-V Miracles Shampoo Antiqueda & Nutrição Biotinamina B3 para cabelos com queda 510ml',49.90,'Pantene PRO-V Miracles Shampoo Antiqueda & Nutrição Biotinamina B3 para cabelos com queda 510ml','img_cabelo/img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Pantene PRO-V Miracles Shampoo Antiqueda & Nutrição Biotinamina B3 para cabelos com queda 510ml',49.90,'Pantene PRO-V Miracles Shampoo Antiqueda & Nutrição Biotinamina B3 para cabelos com queda 510ml','img_cabelo/img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Pantene PRO-V Miracles Shampoo Antiqueda & Nutrição Biotinamina B3 para cabelos com queda 510ml',
+  [
+   'img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda1.jpg',
+   'img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda2.jpg',
+   'img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda3.jpg',
+   'img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda4.jpg',
+   'img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda5.jpg',
+   'img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda6.jpg',
+   'img_cabelo/Pantene_PRO-V_Miracles_Shampoo_Antiqueda7.jpg'
+  ],
+  'Sobre este item \n\ \n\ Reduz até 95% da queda*. *Queda devido à quebra vs. shampoo sem agentes condicionantes. \n\ \n\ Segura os fios desde a raiz°. °Com base em um estudo clínico onde 80% dos participantes mantiveram o mesmo número de cabelos em 8 semanas. Resultados usando o regime Pantene Biotinamina B3 incluindo o tônico. \n\ \n\ Cabelo visivelmente saudável de dentro para fora. \n\ \n\ Mix de vitaminas capilares: + BIOTINA B7 + VITAMINA B3 + PRO-VITAMINA B5 \n\ \n\ Limpa suavemente, promovendo um couro cabeludo saudável e a fixação do cabelo',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Rapunzel Growth Tônico Capilar 250ml , Lola Cosmetics -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Rapunzel_Growth_Tônico_Capilar1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Rapunzel Growth Tônico Capilar 250ml , Lola Cosmetics</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Rapunzel Growth Tônico Capilar 250ml , Lola Cosmetics',49.90,'Rapunzel Growth Tônico Capilar 250ml , Lola Cosmetics','img_cabelo/Rapunzel_Growth_Tônico_Capilar1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Rapunzel Growth Tônico Capilar 250ml , Lola Cosmetics',49.90,'Rapunzel Growth Tônico Capilar 250ml , Lola Cosmetics','img_cabelo/Rapunzel_Growth_Tônico_Capilar1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Rapunzel Growth Tônico Capilar 250ml , Lola Cosmetics',
+  [
+   'img_cabelo/Rapunzel_Growth_Tônico_Capilar1.jpg',
+   'img_cabelo/Rapunzel_Growth_Tônico_Capilar2.jpg',
+   'img_cabelo/Rapunzel_Growth_Tônico_Capilar3.jpg',
+   'img_cabelo/Rapunzel_Growth_Tônico_Capilar4.jpg',
+   'img_cabelo/Rapunzel_Growth_Tônico_Capilar5.jpg',
+   'img_cabelo/Rapunzel_Growth_Tônico_Capilar6.jpg',
+   'img_cabelo/Rapunzel_Growth_Tônico_Capilar7.jpg',
+   'img_cabelo/Rapunzel_Growth_Tônico_Capilar8.jpg',
+  ],
+  'Sobre este item \n\ \n\ Fortalece o folículo capilar, vida longa aos fios \n\ \n\ promove fibras saudaveis e mais resistentes \n\ \n\ ciclo crescimento cabelo volta ao normal, evitando queda constante e gradual ',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- L'Oréal Paris Elsève Creme Tratamento Leave in Cicatri Renov, Branco -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/LOréal_Paris_Elsève_Creme_Tratamento_Leave_in_Cicatri_Renov1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">L'Oréal Paris Elsève</h3>
+              <p class="text-gray-500 text-sm mb-2">L'Oréal Paris Elsève Creme Tratamento Leave in Cicatri Renov, Branco</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('LOréal Paris Elsève Creme Tratamento Leave in Cicatri Renov, Branco',49.90,'LOréal Paris Elsève Creme Tratamento Leave in Cicatri Renov, Branco','img_cabelo/LOréal_Paris_Elsève_Creme_Tratamento_Leave_in_Cicatri_Renov1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('LOréal Paris Elsève Creme Tratamento Leave in Cicatri Renov, Branco',49.90,'LOréal Paris Elsève Creme Tratamento Leave in Cicatri Renov, Branco','img_cabelo/LOréal_Paris_Elsève_Creme_Tratamento_Leave_in_Cicatri_Renov1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'LOréal Paris Elsève Creme Tratamento Leave in Cicatri Renov, Branco',
+  [
+   'img_cabelo/LOréal_Paris_Elsève_Creme_Tratamento_Leave_in_Cicatri_Renov1.jpg',
+   'img_cabelo/LOréal_Paris_Elsève_Creme_Tratamento_Leave_in_Cicatri_Renov2.jpg',
+   'img_cabelo/LOréal_Paris_Elsève_Creme_Tratamento_Leave_in_Cicatri_Renov3.jpg',
+   'img_cabelo/LOréal_Paris_Elsève_Creme_Tratamento_Leave_in_Cicatri_Renov4.jpg',
+   'img_cabelo/LOréal_Paris_Elsève_Creme_Tratamento_Leave_in_Cicatri_Renov5.jpg'
+  ],
+  'Sobre este item \n\ \n\ Repara, protege e revitaliza os fios \n\ \n\ Proteção térmica \n\ \n\ Ação antifrizz',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+
+        <!-- Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g -->
+        <div class="min-w-[25%] p-2">
+          <div class="border rounded-xl shadow p-4 bg-white flex flex-col justify-between h-full">
+            <img src="img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg" class="w-full h-[200px] object-contain rounded-lg mb-4 bg-gray-100">
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-700 text-lg mb-1">Lola From Rio</h3>
+              <p class="text-gray-500 text-sm mb-2">Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g</p>
+            </div>
+            <p class="text-[#d946ef] font-bold text-lg mb-2">R$ 49,90</p>
+            <div class="flex items-center gap-2">
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',true)"
+                class="flex-1 bg-[#d946ef] text-white text-center py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+              <button onclick="addToCart('Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',49.90,'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g','img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',false)"
+                class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13l-1.5-7M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                </svg>
+              </button>
+            </div>
+			<button onclick="openModal(
+  'Lola Cosmetics Morte Súbita Super Hidratante - Máscara de Tratamento 450g',
+  [
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante1.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante2.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante3.jpg',
+   'img_cabelo/Morte_Súbita_Máscara_Super_Hidratante4.jpg'
+  ],
+  'A Máscara Morte Súbita da Lola é assim: ou você ama ou não conhece! Penetra nos fios sem pedir licença, acabando com os dias de cabelos secos e detonados sem ter dó nem piedade! \n\ \n\ Quer uma máscara PERFEITA pra hidratação, @? Então achou o produto pra sua vida! O Morte Súbita é ideal pra uma hidratação profunda, pois possui um blend PODEROSÍSSIMO de óleos capilares. \n\ \n\ Acha que acabou?? Ela ainda é a máscara capilar Lola mais indicada para etapa de nutrição. Sua fórmula do possui ativos como óleo de Coco, proteína Hidrolisada, Aloe Vera e Pantenol. Todos esses componentes juntos penetram profundamente no cabelo, fortificando, servindo como tratamento pra queda e mantendo os cabelos mais saudáveis e brilhantes. \n\ \n\ Um tratamento semanal pros cabelos sedentos de vida! Sabe do melhor?? Também é excelente pós processos de coloração ou outra química! \n\ \n\ Indicado para: \n\ - Cabelos danificados e quimicamente tratados \n\ - Etapa de Nutrição do Cronograma Capilar \n\ \n\ Por que você vai amar? \n\ - hidratação profunda \n\ - indicado para etapa de nutrição no cronograma capilar \n\ - trata a queda de cabelo \n\ \n\ Ativos: \n\ - Blend Hidratante, Extrato de Aloe Vera, Extrato de chá verde, Óleo de Coco, Proteínas. \n\ - Blend Hidratante: Reposição da umidade, hidratação, fortalecimento, maciez, suavidade, brilho e resistência. \n\ - Aminoácidos: Proteção da cor e reparo dos danos da superfície da fibra capilar. \n\ - Proteínas vegetais: Protegem os fios do calor e flyaways. \n\ \n\ Livre de: \n\ - Corantes Sintéticos \n\ - Ftalatos \n\ - OGMs \n\ - Silicone Insolúvel \n\ - Cloreto de Sódio \n\ - Parabenos, Óleo Mineral \n\ - Parafina \n\ - Derivados de Animais \n\ \n\ #édica de aplicação: \n\ Aplicar uma vez por semana após o uso do Shampoo Morte Súbita ou após fazer coloração ou químicas. \n\ \n\ Modo de Usar: \n\ Distribua uniformemente sobre todo o comprimento dos fios e deixe em pausa 10 minutos. \n\ Enxágue e finalize como de costume. \n\ \n\ Resultado: \n\ Seus fios muito mais hidratados, macios e brilhosos! \n\ \n\ A marca: \n\ A Lola Cosmetics surgiu a partir de uma escolha: ser feliz! Levar a vida com bom humor, ainda que nada pareça dar certo. Nem mesmo o seu cabelo! Fazem o papel de levar até você sensações e cuidados especiais, cores vibrantes, textos motivadores e bem-humorados, provocando um sentimento único e motivador! A Lola é uma empresa Vegana que se preocupa com os animaizinhos desse mundo, isso inclui serem contra testes em cachorros, gatos e outros bichinhos!',
+  59.90
+)" 
+class="text-sm font-medium text-pink-500 hover:underline">
+  Ver mais sobre o produto
+</button>
+
+          </div>
+        </div>    
+		
+    </div>
+  </main>
+
+  <!-- Modal -->
+<div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-lg flex flex-col">
+    <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+    
+    <!-- Carrossel de Imagens -->
+    <div class="relative mb-4">
+      <img id="modal-image" src="" class="w-full max-h-[350px] object-contain rounded-lg mx-auto">
+      <button onclick="prevModalImage()" class="absolute top-1/2 left-2 -translate-y-1/2 bg-white bg-opacity-70 px-2 py-1 rounded-full shadow">⟨</button>
+      <button onclick="nextModalImage()" class="absolute top-1/2 right-2 -translate-y-1/2 bg-white bg-opacity-70 px-2 py-1 rounded-full shadow">⟩</button>
+    </div>
+
+    <!-- Conteúdo -->
+    <h3 id="modal-title" class="text-xl font-bold text-gray-800 mb-2"></h3>
+    <div id="modal-description" class="text-gray-600 mb-4 max-h-40 overflow-y-auto"></div>
+    <p id="modal-price" class="text-pink-600 font-bold text-lg mb-4"></p>
+    <button id="modal-buy" class="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition font-medium">Comprar</button>
+  </div>
+</div>
+
+  <!-- Rodapé -->
+  <footer class="bg-pink-50 mt-12">
+    <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-8">
+      <div class="flex flex-col gap-2">
+        <h3 class="font-bold text-gray-700 mb-2">Lume</h3>
+        <a href="#" class="text-gray-600 hover:text-pink-500 transition">Sobre Nós</a>
+        <a href="#" class="text-gray-600 hover:text-pink-500 transition">Contato</a>
+        <a href="#" class="text-gray-600 hover:text-pink-500 transition">Política de Privacidade</a>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="font-bold text-gray-700 mb-2">Siga-nos</h3>
+        <div class="flex gap-4">
+          <a href="#" class="text-gray-600 hover:text-pink-500 transition">Instagram</a>
+          <a href="#" class="text-gray-600 hover:text-pink-500 transition">Facebook</a>
+          <a href="#" class="text-gray-600 hover:text-pink-500 transition">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="bg-pink-100 text-gray-600 text-center py-4 mt-6 text-sm">
+      &copy; 2025 Lume. Todos os direitos reservados.
+    </div>
+  </footer>
+
+<script>
+  // Atualiza contador do carrinho
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalQuantity = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+    document.getElementById('cart-count').innerText = totalQuantity;
+  }
+
+  // Adicionar ao carrinho
+  function addToCart(name, price, description, image, redirect) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existing = cart.find(p => p.name === name);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ name, price, description, image, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    if (redirect) window.location.href = "carrinho.html";
+  }
+  
+   // Sidebar
+  function toggleSidebar(){document.getElementById('sidebar').classList.toggle('-translate-x-full');}
+  function toggleSubmenu(id){document.getElementById(id).classList.toggle('hidden');}
+
+  // Modal dinâmico
+  function openModal(name, image, description, price) {
+    document.getElementById("modal-title").innerText = name;
+    document.getElementById("modal-image").src = image;
+    document.getElementById("modal-description").innerText = description;
+    document.getElementById("modal-price").innerText = `R$ ${price.toFixed(2)}`;
+    document.getElementById("modal-buy").onclick = function() {
+      addToCart(name, price, description, image, true);
+    };
+    document.getElementById("product-modal").classList.remove("hidden");
+    document.getElementById("product-modal").classList.add("flex");
+  }
+
+  function closeModal() {
+    document.getElementById("product-modal").classList.add("hidden");
+    document.getElementById("product-modal").classList.remove("flex");
+  }
+  
+  //carrossel modal
+let modalImages = [];
+  let currentImageIndex = 0;
+
+  function openModal(name, images, description, price) {
+    document.getElementById("modal-title").innerText = name;
+    modalImages = images;
+    currentImageIndex = 0;
+    document.getElementById("modal-image").src = modalImages[currentImageIndex];
+    
+    document.getElementById("modal-description").innerHTML = description.replace(/\n/g, "<br>");
+    document.getElementById("modal-price").innerText = `R$ ${price.toFixed(2)}`;
+    document.getElementById("modal-buy").onclick = function() {
+      addToCart(name, price, description, modalImages[0], true);
+    };
+
+    document.getElementById("product-modal").classList.remove("hidden");
+    document.getElementById("product-modal").classList.add("flex");
+  }
+
+  function closeModal() {
+    document.getElementById("product-modal").classList.add("hidden");
+    document.getElementById("product-modal").classList.remove("flex");
+  }
+
+  function nextModalImage() {
+    if (modalImages.length > 1) {
+      currentImageIndex = (currentImageIndex + 1) % modalImages.length;
+      document.getElementById("modal-image").src = modalImages[currentImageIndex];
+    }
+  }
+
+  function prevModalImage() {
+    if (modalImages.length > 1) {
+      currentImageIndex = (currentImageIndex - 1 + modalImages.length) % modalImages.length;
+      document.getElementById("modal-image").src = modalImages[currentImageIndex];
+    }
+  }
+
+  window.onload = updateCartCount;
+</script>
+
+</body>
+</html>
