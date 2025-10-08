@@ -230,13 +230,13 @@ async function gerarLinkPagamento(){
       'Content-Type':'application/json'
     },
     body: JSON.stringify({
-  items: cart.map(item => ({
-    title: item.name,
-    description: item.description,
-    quantity: item.quantity || 1,
-    unit_price: parseFloat(item.price),
-    picture_url: item.image
-  })),
+      items: cart.map(item => ({
+        title: item.name,
+        description: item.description,
+        quantity: item.quantity || 1,
+        unit_price: parseFloat(item.price),
+        picture_url: item.image
+      })),
       payer: {
         name: document.getElementById('nome').value,
         email: document.getElementById('email').value,
